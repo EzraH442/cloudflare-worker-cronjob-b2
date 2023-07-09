@@ -1,0 +1,9 @@
+{
+  "bucketSourceId": "backblaze bucket id",
+  "bucketFilenamePrefix": "backblaze bucket filename prefix",
+  "b2AppKey": "backblaze application key",
+  "b2AppKeyId": "backblaze application key id",
+  "cfAccountId": "cloudflare account id" ,
+  "cfWorkerApi": "cloudflare api key to modify worker" ,
+  "cfWorkerName": "cloudflare worker name" 
+}

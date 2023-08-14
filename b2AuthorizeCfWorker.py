@@ -8,7 +8,7 @@ import time
 import schedule
 
 flagDebug = True
-env = os.environ['ENV']
+env = os.environ['env']
 
 # Backblaze b2 settings
 bucketSourceId = ''

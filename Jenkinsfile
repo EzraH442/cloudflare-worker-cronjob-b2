@@ -2,12 +2,12 @@ pipeline {
   agent any
 
   environment {
-    bucketSourceId = credentials["bucketSourceId"]
-    b2AppKey       = credentials["b2AppKey"]
-    b2AppKeyId     = credentials["b2AppKeyId"]
-    cfAccountId    = credentials["cfAccountId"]
-    cfWorkerApi    = credentials["cfWorkerApi"]
-    cfWorkerName   = credentials["cfWorkerName"]
+    bucketSourceId = credentials("bucketSourceId")
+    b2AppKey       = credentials("b2AppKey")
+    b2AppKeyId     = credentials("b2AppKeyId")
+    cfAccountId    = credentials("cfAccountId")
+    cfWorkerApi    = credentials("cfWorkerApi")
+    cfWorkerName   = credentials("cfWorkerName")
   }
 
   stages {

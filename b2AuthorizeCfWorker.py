@@ -8,19 +8,19 @@ import time
 import schedule
 
 flagDebug = True
-env = os.environ['env']
+env = os.environ["env"]
 
 # Backblaze b2 settings
-bucketSourceId = ''
-b2AppKey = ''
-b2AppKeyId = ''
+bucketSourceId = ""
+b2AppKey = ""
+b2AppKeyId = ""
 
 # Cloudflare settings
-cfAccountId = ''
-cfWorkerApi = ''
-cfWorkerName = ''
+cfAccountId = ""
+cfWorkerApi = ""
+cfWorkerName = ""
 
-if env != 'prod':
+if env and env != "prod":
     with open("config.json") as config_file:
         config = json.loads(config_file.read())
 
@@ -34,13 +34,14 @@ if env != 'prod':
     cfWorkerApi = config["cfWorkerApi"]
     cfWorkerName = config["cfWorkerName"]
 else:
-    flagDebug = False
+    flagDebug = True
     bucketSourceId = os.environ["bucketSourceId"]
     b2AppKey = os.environ["b2AppKey"]
     b2AppKeyId = os.environ["b2AppKeyId"]
     cfAccountId = os.environ["cfAccountId"]
     cfWorkerApi = os.environ["cfWorkerApi"]
     cfWorkerName = os.environ["cfWorkerName"]
+
 
 def job():
     # An authorization token is valid for not more than 1 week
@@ -126,7 +127,10 @@ def job():
         print(resp.headers)
         print(resp.content)
 
+
 schedule.every().day.at("00:00").do(job)
+
+job()
 
 while True:
     schedule.run_pending()

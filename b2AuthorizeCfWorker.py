@@ -68,6 +68,8 @@ def job():
 
     respData = json.loads(resp.content.decode("UTF-8"))
 
+    print(respData)
+
     bAuToken = respData["authorizationToken"]
     bFileDownloadUrl = respData["downloadUrl"]
     bPartSize = respData["recommendedPartSize"]

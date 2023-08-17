@@ -8,7 +8,7 @@ import time
 import schedule
 
 flagDebug = True
-env = os.environ["env"]
+env = os.environ.get("env", "dev")
 
 # Backblaze b2 settings
 bucketSourceId = ""
@@ -70,7 +70,7 @@ def job():
 
     print(respData)
 
-    bAuToken = respData["authorizationToken"]
+    bAuToken = respData.get("authorizationToken")
     bFileDownloadUrl = respData["downloadUrl"]
     bPartSize = respData["recommendedPartSize"]
     bApiUrl = respData["apiUrl"]

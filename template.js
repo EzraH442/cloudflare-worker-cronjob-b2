@@ -22,5 +22,7 @@ async function handleRequest(request) {
       headers: b2Headers
   })
   const response = await fetch(modRequest)
-  return response
+  const newResponse = new Response(response.body, response);
+  newResponse.headers.append("Access-Control-Allow-Origin", "*");
+  return newResponse;
 }
